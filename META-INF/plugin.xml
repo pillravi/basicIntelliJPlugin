@@ -40,8 +40,10 @@
     <!-- Add your actions here -->
     <action id="VeryBasic.Suggestion"
             class="com.oregonstateuniversity.verybasic.VeryBasicSuggestion"
-            text="SuggestionName" description="Implement a Basic Suggestion">
-      <add-to-group group-id="RefactoringMenu" anchor="last"/>
+            text="Implement a Basic Suggestion"
+            description="Implement a Basic Suggestion">
+      <add-to-group group-id="RefactoringMenu"
+                    anchor="after" relative-to-action="RenameElement"/>
       <keyboard-shortcut keymap="$default" first-keystroke="shift meta alt 3"/>
     </action>
   </actions>
