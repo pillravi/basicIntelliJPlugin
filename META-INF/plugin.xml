@@ -41,7 +41,7 @@
     <action id="VeryBasic.Suggestion"
             class="com.oregonstateuniversity.verybasic.VeryBasicSuggestion"
             text="Implement a Basic Suggestion"
-            description="Implement a Basic Suggestion">
+            description="Implement a Basic Suggestion Description">
       <add-to-group group-id="RefactoringMenu"
                     anchor="after" relative-to-action="RenameElement"/>
       <keyboard-shortcut keymap="$default" first-keystroke="meta alt C"/>
