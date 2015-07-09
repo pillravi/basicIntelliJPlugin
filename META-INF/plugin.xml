@@ -44,7 +44,7 @@
             description="Implement a Basic Suggestion">
       <add-to-group group-id="RefactoringMenu"
                     anchor="after" relative-to-action="RenameElement"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="shift meta alt 3"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="meta alt C"/>
     </action>
   </actions>
 

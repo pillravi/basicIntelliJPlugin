@@ -1,9 +1,6 @@
 package com.oregonstateuniversity.verybasic;
 
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.LangDataKeys;
-import com.intellij.openapi.actionSystem.PlatformDataKeys;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.psi.PsiElement;
@@ -18,27 +15,44 @@ public class VeryBasicSuggestion extends AnAction {
 
     public void actionPerformed(AnActionEvent e) {
         Project project = e.getData(PlatformDataKeys.PROJECT);
-//        String txt = Messages.showInputDialog(project, "What is your name?",
-//                "Input you name:", Messages.getQuestionIcon());
-//        Messages.showMessageDialog(project, "Hello, " + txt +
-//                        "!\nI am glad to see you.", "Information",
-//                Messages.getInformationIcon());
 
-        PsiElement element = e.getData(LangDataKeys.PSI_ELEMENT);
+        PsiElement langElement = e.getData(LangDataKeys.PSI_ELEMENT);
+//        PsiElement genericElement = e.getData(DataKeys.PSI_ELEMENT);
+//        PsiElement platformElement = e.getData(PlatformDataKeys.PSI_ELEMENT);
+//        PsiElement commonElement = e.getData(CommonDataKeys.PSI_ELEMENT);
+//        PsiElement caret = e.getData(CommonDataKeys.CARET);
+//        PsiElement langCaret = e.getData(LangDataKeys.CARET);
 
-//        System.out.println(element.toString());
+//        System.out.println("genericElement: " + genericElement.getClass());
+//        System.out.println(genericElement.toString());
+//        System.out.println("platformElement: " + platformElement.getClass());
+//        System.out.println(platformElement.toString());
+//        System.out.println("commonElement: " + commonElement.getClass());
+//        System.out.println(commonElement.toString());
 
-        PsiElement parent = PsiTreeUtil.getParentOfType(element, PsiElement.class);
 
-//        System.out.println(parent.toString());
+        if (langElement != null) {
+            System.out.println("langElement Class: " + langElement.getClass());
+            System.out.println("         toString: " + langElement.toString());
+            System.out.println("         children: ");
 
-        System.out.println(element.getClass());
 
-        RefactoringFactory factory = new JavaRefactoringFactoryImpl(project);
-//        factory = RefactoringFactory.getInstance(project);
-        factory.createRename(element, "somethingReallyLongSoWeWontMissIt");
+            PsiElement scratchChildren[] = langElement.getChildren();
+            for (Integer i = 0; i < scratchChildren.length; i++) {
+                System.out.println("            child #" + i + ": " +
+                        scratchChildren[i].toString());
+            }
+//            PsiElement srcChildren[] = scratchChildren[1].getChildren();
 
-        System.out.println(element.toString());
+            System.out.println();
+        } else {
+            System.out.println("langElement was null");
+            System.out.println();
+        }
+
+
+//        System.out.println(scratchChildren);
+
 
     }
 }
